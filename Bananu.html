@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bananu</title>
+  <style>
+    :root {
+      --yellow: #fff200;
+      --black: #000;
+      --white: #bbbbbbf6;
+      --font: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--yellow);
+      border-bottom: 8px solid var(--black);
+      padding: 4px 48px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* ---------- Layout ---------- */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 2.7fr;
+      gap: 56px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: 3.2rem;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .play h2 {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 3.4rem;
+    }
+
+    /* ---------- Image link boxes ---------- */
+    .box {
+      display: block;
+      border: 8px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.15rem;
+      padding: 14px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .box:hover,
+    .box:focus-visible {
+      background: var(--yellow);
+      outline: none;
+    }
+    .box:focus-visible {
+      box-shadow: 0 0 0 4px var(--white), 0 0 0 8px var(--black);
+    }
+
+    /* Real images fill the whole box */
+    .box img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Sidebar (hot/new) */
+    .hot-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .hot-list .box { height: 130px; }
+
+    /* Play now */
+    .play-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .play-list .box:first-child { height: 290px; }
+    .play-list .box:last-child  { height: 230px; }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 720px) {
+      header { padding: 4px 20px; }
+      header h1 { font-size: 2.6rem; }
+      main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 20px 16px 40px;
+      }
+      h2, .play h2 { font-size: 2.4rem; }
+      .play { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bananu</h1>
+  </header>
+
+  <main>
+    <!-- Left column -->
+    <section class="hot" aria-labelledby="hot-title">
+      <h2 id="hot-title">hot/new</h2>
+      <div class="hot-list">
+        <!-- To use a real image: <a class="box" href="game-1.html"><img src="game-1.png" alt="Game 1"></a> -->
+        <a class="box" href="#">image link</a>
+        <a class="box" href="#">image link</a>
+        <a class="box" href="#">image link</a>
+      </div>
+    </section>
+
+    <!-- Right column -->
+    <section class="play" aria-labelledby="play-title">
+      <h2 id="play-title">Play now!</h2>
+      <div class="play-list">
+        <a class="box" href="#">image link</a>
+        <a class="box" href="#">image link</a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
